@@ -51,4 +51,4 @@ client.on('guildDelete', guild => {
 });
 
 
-client.login('process.env.BOTTOKEN');
+client.login(process.env.BOTTOKEN);

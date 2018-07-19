@@ -19,11 +19,6 @@ client.on('ready', () => {
   }, 10000)
 });
 
-client.on('disconnect', function() {
-  console.log('Bot disconnected');
-  client.channels.get(logchannel).send('bot disconnected');
-  process.exit(1);
-});
 // Create an event listener for messages
 client.on('message',async message => {
 

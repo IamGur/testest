@@ -12,7 +12,7 @@ module.exports.run = (client, message, args) => {
   }
 
   else if (status.length !== 0) {
-   client.user.setPresence({ game: { name: `${status}`, url: 'https://twitch.tv/', type: 1 } });
+   client.user.setPresence({ game: { name: `${status}`, url: 'https://twitch.tv/....', type: 1 } });
   const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setDescription('✅ You sucessfully changed streaming status');

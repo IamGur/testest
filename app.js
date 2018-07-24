@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const send = require('quick.hook');
 const prefix = '!';
 const joinleave = '443668848193961995';
 const logchannel = '443668654580826123';

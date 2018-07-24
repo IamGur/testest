@@ -6,17 +6,17 @@ const logchannel = '443668654580826123';
 const rechannel = '443668814253654017';
 const Dav = '324432889561219072';
 
-let statuses = ['!help', 'Hello!'];
+//let statuses = ['!help', 'Hello!'];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
   client.channels.get(logchannel).send('Bot logged in');
 
-  setInterval(function() {
-    let status = statuses[Math.floor(Math.random()*statuses.length)];
-    client.user.setPresence({game: {name: status }, status: 'online' });
+  //setInterval(function() {
+    //let status = statuses[Math.floor(Math.random()*statuses.length)];
+    //client.user.setPresence({game: {name: status }, status: 'online' });
     //client.user.setPresence({ activity: {name: status }, status: 'online'});
-  }, 10000)
+  //}, 10000)
 });
 
 // Create an event listener for messages
@@ -44,11 +44,29 @@ client.on('message',async message => {
     console.log(command)
   }
 })
-client.on("guildCreate", guild => { client.channels.get(joinleave).send(`New server joined: ${guild.name} (id: ${guild.id}). This server has ${guild.memberCount} members! and owner is ${guild.owner.user.username} now im in ${client.guilds.size} servers`); });
-
-client.on('guildDelete', guild => {
-    client.channels.get(joinleave).send(`Removed from ${guild.name} (id: ${guild.id}). and it was owned by ${guild.owner.user.username} (owner id: ${guild.owner.id}) now im in ${client.guilds.size} servers`);
+client.on("guildCreate", guild => {
+  const liveJoin = client.channels.get("443668848193961995"); 
+  let liveJEmbed = new Discord.RichEmbed()
+  .setAuthor(client.user.username, client.user.avatarURL)
+  .setColor('RANDOM')
+  .setTitle(`Your Bot Has Started Serving A Guild`)
+  .setDescription(`**Guild Name**: ${guild.name}\n**Guild ID**: ${guild.id}\n**Members Gained**: ${guild.memberCount}`)
+  send(liveJoin, liveJEmbed, {
+      name: `Tast`,
+      icon: `https://cdn.discordapp.com/avatars/442956878700609546/46c8ba8875cab994b46da32c8c254c49.png?size=2048`
+  })
 });
-
+client.on("guildDelete", guild => {
+  const liveLeave = client.channels.get("443668848193961995"); 
+  let liveLEmbed = new Discord.RichEmbed()
+  .setAuthor(client.user.username, client.user.avatarURL)
+  .setColor('RANDOM')
+  .setTitle(`Your Bot Has Stopped Serving A Guild`)
+  .setDescription(`**Guild Name**: ${guild.name}\n**Guild ID**: ${guild.id}\n**Members Lost**: ${guild.memberCount}`)
+  send(liveLeave, liveLEmbed, {
+      name: `Tast`,
+      icon: `https://cdn.discordapp.com/avatars/442956878700609546/46c8ba8875cab994b46da32c8c254c49.png?size=2048`
+  })
+});
 
 client.login(process.env.BOTTOKEN);

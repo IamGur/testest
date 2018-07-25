@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-    if(isNaN(args[0])) return message.channel.send('Please provide a valid amount to purge or dedete messages!');
-    if (args[0] >100) return message.channel.send('Supply a amount less then 100!');
-
-    message.channel.bulkDelete(args[0])
-};
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+    if(!args[0]) return message.channel.send("oof");
+    message.channel.bulkDelete(args[0]).then(() => {
+      message.channel.send(`Deleted ${args[0]} messages.`).then(msg => msg.delete(5000));
+    });
+  }

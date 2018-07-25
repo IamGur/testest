@@ -4,6 +4,7 @@ const prefix = '!';
 const command = 'warn';
 
 exports.run = async (client, message, args) => {
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply("You can't warn someone.");
     let warnUser = message.mentions.members.first();
     if (!warnUser) return message.channel.send(`Mention a user to warn`);
     let args2 = message.content.substring(prefix.length + command.length).split(`<@${warnUser.user.id}>`);

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '!';
+const prefix = '#';
 const joinleave = '443668848193961995';
 const logchannel = '443668654580826123';
 const rechannel = '443668814253654017';

@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
 
     let embed = new Discord.RichEmbed()
     .setAuthor('Hi' + message.author.username.toString(), message.author.displayAvatarURL)
-    .setDescription(`Help Section \nPrefix = ! \nMore Commands Coming Soon😉`)
+    .setDescription(`Help Section \nPrefix = # \nMore Commands Coming Soon😉`)
     .setThumbnail('https://cdn.discordapp.com/avatars/324432889561219072/4ab54e95443797898a1983feca3af755.png?size=2048')
     .setColor('RANDOM')
     .addField('Bot Commands',`Ping - (Bot's ping) \nUptime (Bot's UpTime) \nInvite - (Bot Invite Link) `)

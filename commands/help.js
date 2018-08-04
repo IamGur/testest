@@ -14,5 +14,7 @@ exports.run = async (client, message, args) => {
     .addField('Support Server', `[Link](https://discord.gg/b3g8r4Y)`, inline = true)
     .addField('Bot Invite Link', `[Invite](https://discordapp.com/api/oauth2/authorize?client_id=468715068834447361&permissions=8&scope=bot)`, inline = true)
     .setTimestamp();
-    message.channel.send(embed)
+    message.author.send(embed)
+    message.channel.send('Check your dm', {reply; meassage})
+    message.react("👌");
 }

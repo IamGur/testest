@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '#';
 const joinleave = '443668848193961995';
-const logchannel = 'process.env.Bot_Log';
+const logchannel = 'process.env.LOGID';
 const rechannel = '443668814253654017';
 const Dav = '324432889561219072';
 
